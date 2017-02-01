@@ -12,4 +12,4 @@ The task is to start with this example and build a tool with an appropriate user
 The tool might be useful in running student course work submissions during assessment. The user interface should allow the user to select a program and choose the relevant permissions. 
 As a minimum, the tools should be able to restrict an executing program’s ability to access the file system, to access the network and to access other devices and peripherals. 
 A windowed interface will be useful for interactive use of the tool for less experienced users. 
-The tool will be tested by executing itself in its sandbox as well as executing other samples of coursework.
+The tool will be tested by executing itself in its sandbox & executing other samples of coursework.

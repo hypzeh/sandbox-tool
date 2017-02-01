@@ -37,14 +37,23 @@
             this.tableButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnOK = new MetroFramework.Controls.MetroButton();
             this.btnCancel = new MetroFramework.Controls.MetroButton();
+            this.groupPermissions = new System.Windows.Forms.GroupBox();
+            this.CheckBox1 = new MetroFramework.Controls.MetroCheckBox();
+            this.tablePermissions = new System.Windows.Forms.TableLayoutPanel();
+            this.CheckBox2 = new MetroFramework.Controls.MetroCheckBox();
+            this.CheckBox3 = new MetroFramework.Controls.MetroCheckBox();
+            this.CheckBox4 = new MetroFramework.Controls.MetroCheckBox();
             this.panelMain.SuspendLayout();
             this.groupApplication.SuspendLayout();
             this.tableApplication.SuspendLayout();
             this.tableButtons.SuspendLayout();
+            this.groupPermissions.SuspendLayout();
+            this.tablePermissions.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMain
             // 
+            this.panelMain.Controls.Add(this.groupPermissions);
             this.panelMain.Controls.Add(this.groupApplication);
             this.panelMain.Controls.Add(this.tableButtons);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -181,6 +190,79 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseSelectable = true;
             // 
+            // groupPermissions
+            // 
+            this.groupPermissions.AutoSize = true;
+            this.groupPermissions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupPermissions.Controls.Add(this.tablePermissions);
+            this.groupPermissions.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupPermissions.Location = new System.Drawing.Point(0, 48);
+            this.groupPermissions.Name = "groupPermissions";
+            this.groupPermissions.Size = new System.Drawing.Size(410, 61);
+            this.groupPermissions.TabIndex = 4;
+            this.groupPermissions.TabStop = false;
+            this.groupPermissions.Text = "Permissions";
+            // 
+            // CheckBox1
+            // 
+            this.CheckBox1.AutoSize = true;
+            this.CheckBox1.Location = new System.Drawing.Point(3, 3);
+            this.CheckBox1.Name = "CheckBox1";
+            this.CheckBox1.Size = new System.Drawing.Size(81, 15);
+            this.CheckBox1.TabIndex = 0;
+            this.CheckBox1.Text = "CheckBox1";
+            this.CheckBox1.UseSelectable = true;
+            // 
+            // tablePermissions
+            // 
+            this.tablePermissions.AutoSize = true;
+            this.tablePermissions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tablePermissions.ColumnCount = 2;
+            this.tablePermissions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tablePermissions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tablePermissions.Controls.Add(this.CheckBox1, 0, 0);
+            this.tablePermissions.Controls.Add(this.CheckBox2, 0, 1);
+            this.tablePermissions.Controls.Add(this.CheckBox3, 1, 0);
+            this.tablePermissions.Controls.Add(this.CheckBox4, 1, 1);
+            this.tablePermissions.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tablePermissions.Location = new System.Drawing.Point(3, 16);
+            this.tablePermissions.Name = "tablePermissions";
+            this.tablePermissions.RowCount = 2;
+            this.tablePermissions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tablePermissions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tablePermissions.Size = new System.Drawing.Size(404, 42);
+            this.tablePermissions.TabIndex = 1;
+            // 
+            // CheckBox2
+            // 
+            this.CheckBox2.AutoSize = true;
+            this.CheckBox2.Location = new System.Drawing.Point(3, 24);
+            this.CheckBox2.Name = "CheckBox2";
+            this.CheckBox2.Size = new System.Drawing.Size(81, 15);
+            this.CheckBox2.TabIndex = 1;
+            this.CheckBox2.Text = "CheckBox2";
+            this.CheckBox2.UseSelectable = true;
+            // 
+            // CheckBox3
+            // 
+            this.CheckBox3.AutoSize = true;
+            this.CheckBox3.Location = new System.Drawing.Point(205, 3);
+            this.CheckBox3.Name = "CheckBox3";
+            this.CheckBox3.Size = new System.Drawing.Size(81, 15);
+            this.CheckBox3.TabIndex = 2;
+            this.CheckBox3.Text = "CheckBox3";
+            this.CheckBox3.UseSelectable = true;
+            // 
+            // CheckBox4
+            // 
+            this.CheckBox4.AutoSize = true;
+            this.CheckBox4.Location = new System.Drawing.Point(205, 24);
+            this.CheckBox4.Name = "CheckBox4";
+            this.CheckBox4.Size = new System.Drawing.Size(81, 15);
+            this.CheckBox4.TabIndex = 3;
+            this.CheckBox4.Text = "CheckBox4";
+            this.CheckBox4.UseSelectable = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -197,6 +279,10 @@
             this.tableApplication.ResumeLayout(false);
             this.tableApplication.PerformLayout();
             this.tableButtons.ResumeLayout(false);
+            this.groupPermissions.ResumeLayout(false);
+            this.groupPermissions.PerformLayout();
+            this.tablePermissions.ResumeLayout(false);
+            this.tablePermissions.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -212,6 +298,12 @@
         private System.Windows.Forms.TableLayoutPanel tableButtons;
         private MetroFramework.Controls.MetroButton btnOK;
         private MetroFramework.Controls.MetroButton btnCancel;
+        private System.Windows.Forms.GroupBox groupPermissions;
+        private System.Windows.Forms.TableLayoutPanel tablePermissions;
+        private MetroFramework.Controls.MetroCheckBox CheckBox1;
+        private MetroFramework.Controls.MetroCheckBox CheckBox2;
+        private MetroFramework.Controls.MetroCheckBox CheckBox3;
+        private MetroFramework.Controls.MetroCheckBox CheckBox4;
     }
 }
 

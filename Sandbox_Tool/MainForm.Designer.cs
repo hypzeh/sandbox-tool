@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.panelMain = new MetroFramework.Controls.MetroPanel();
+            this.groupPermissions = new System.Windows.Forms.GroupBox();
+            this.tablePermissions = new System.Windows.Forms.TableLayoutPanel();
+            this.CheckBox1 = new MetroFramework.Controls.MetroCheckBox();
+            this.CheckBox2 = new MetroFramework.Controls.MetroCheckBox();
+            this.CheckBox3 = new MetroFramework.Controls.MetroCheckBox();
+            this.CheckBox4 = new MetroFramework.Controls.MetroCheckBox();
             this.groupApplication = new System.Windows.Forms.GroupBox();
             this.tableApplication = new System.Windows.Forms.TableLayoutPanel();
             this.lblApplicationOpen = new MetroFramework.Controls.MetroLabel();
@@ -37,19 +43,13 @@
             this.tableButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnOK = new MetroFramework.Controls.MetroButton();
             this.btnCancel = new MetroFramework.Controls.MetroButton();
-            this.groupPermissions = new System.Windows.Forms.GroupBox();
-            this.CheckBox1 = new MetroFramework.Controls.MetroCheckBox();
-            this.tablePermissions = new System.Windows.Forms.TableLayoutPanel();
-            this.CheckBox2 = new MetroFramework.Controls.MetroCheckBox();
-            this.CheckBox3 = new MetroFramework.Controls.MetroCheckBox();
-            this.CheckBox4 = new MetroFramework.Controls.MetroCheckBox();
             this.openApplicationFile = new System.Windows.Forms.OpenFileDialog();
             this.panelMain.SuspendLayout();
+            this.groupPermissions.SuspendLayout();
+            this.tablePermissions.SuspendLayout();
             this.groupApplication.SuspendLayout();
             this.tableApplication.SuspendLayout();
             this.tableButtons.SuspendLayout();
-            this.groupPermissions.SuspendLayout();
-            this.tablePermissions.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMain
@@ -68,6 +68,79 @@
             this.panelMain.VerticalScrollbarBarColor = true;
             this.panelMain.VerticalScrollbarHighlightOnWheel = false;
             this.panelMain.VerticalScrollbarSize = 10;
+            // 
+            // groupPermissions
+            // 
+            this.groupPermissions.AutoSize = true;
+            this.groupPermissions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupPermissions.Controls.Add(this.tablePermissions);
+            this.groupPermissions.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupPermissions.Location = new System.Drawing.Point(0, 48);
+            this.groupPermissions.Name = "groupPermissions";
+            this.groupPermissions.Size = new System.Drawing.Size(410, 61);
+            this.groupPermissions.TabIndex = 4;
+            this.groupPermissions.TabStop = false;
+            this.groupPermissions.Text = "Permissions";
+            // 
+            // tablePermissions
+            // 
+            this.tablePermissions.AutoSize = true;
+            this.tablePermissions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tablePermissions.ColumnCount = 2;
+            this.tablePermissions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tablePermissions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tablePermissions.Controls.Add(this.CheckBox1, 0, 0);
+            this.tablePermissions.Controls.Add(this.CheckBox2, 0, 1);
+            this.tablePermissions.Controls.Add(this.CheckBox3, 1, 0);
+            this.tablePermissions.Controls.Add(this.CheckBox4, 1, 1);
+            this.tablePermissions.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tablePermissions.Location = new System.Drawing.Point(3, 16);
+            this.tablePermissions.Name = "tablePermissions";
+            this.tablePermissions.RowCount = 2;
+            this.tablePermissions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tablePermissions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tablePermissions.Size = new System.Drawing.Size(404, 42);
+            this.tablePermissions.TabIndex = 1;
+            // 
+            // CheckBox1
+            // 
+            this.CheckBox1.AutoSize = true;
+            this.CheckBox1.Location = new System.Drawing.Point(3, 3);
+            this.CheckBox1.Name = "CheckBox1";
+            this.CheckBox1.Size = new System.Drawing.Size(81, 15);
+            this.CheckBox1.TabIndex = 0;
+            this.CheckBox1.Text = "CheckBox1";
+            this.CheckBox1.UseSelectable = true;
+            // 
+            // CheckBox2
+            // 
+            this.CheckBox2.AutoSize = true;
+            this.CheckBox2.Location = new System.Drawing.Point(3, 24);
+            this.CheckBox2.Name = "CheckBox2";
+            this.CheckBox2.Size = new System.Drawing.Size(81, 15);
+            this.CheckBox2.TabIndex = 1;
+            this.CheckBox2.Text = "CheckBox2";
+            this.CheckBox2.UseSelectable = true;
+            // 
+            // CheckBox3
+            // 
+            this.CheckBox3.AutoSize = true;
+            this.CheckBox3.Location = new System.Drawing.Point(205, 3);
+            this.CheckBox3.Name = "CheckBox3";
+            this.CheckBox3.Size = new System.Drawing.Size(81, 15);
+            this.CheckBox3.TabIndex = 2;
+            this.CheckBox3.Text = "CheckBox3";
+            this.CheckBox3.UseSelectable = true;
+            // 
+            // CheckBox4
+            // 
+            this.CheckBox4.AutoSize = true;
+            this.CheckBox4.Location = new System.Drawing.Point(205, 24);
+            this.CheckBox4.Name = "CheckBox4";
+            this.CheckBox4.Size = new System.Drawing.Size(81, 15);
+            this.CheckBox4.TabIndex = 3;
+            this.CheckBox4.Text = "CheckBox4";
+            this.CheckBox4.UseSelectable = true;
             // 
             // groupApplication
             // 
@@ -191,104 +264,38 @@
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseSelectable = true;
-            // 
-            // groupPermissions
-            // 
-            this.groupPermissions.AutoSize = true;
-            this.groupPermissions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupPermissions.Controls.Add(this.tablePermissions);
-            this.groupPermissions.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupPermissions.Location = new System.Drawing.Point(0, 48);
-            this.groupPermissions.Name = "groupPermissions";
-            this.groupPermissions.Size = new System.Drawing.Size(410, 61);
-            this.groupPermissions.TabIndex = 4;
-            this.groupPermissions.TabStop = false;
-            this.groupPermissions.Text = "Permissions";
-            // 
-            // CheckBox1
-            // 
-            this.CheckBox1.AutoSize = true;
-            this.CheckBox1.Location = new System.Drawing.Point(3, 3);
-            this.CheckBox1.Name = "CheckBox1";
-            this.CheckBox1.Size = new System.Drawing.Size(81, 15);
-            this.CheckBox1.TabIndex = 0;
-            this.CheckBox1.Text = "CheckBox1";
-            this.CheckBox1.UseSelectable = true;
-            // 
-            // tablePermissions
-            // 
-            this.tablePermissions.AutoSize = true;
-            this.tablePermissions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tablePermissions.ColumnCount = 2;
-            this.tablePermissions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tablePermissions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tablePermissions.Controls.Add(this.CheckBox1, 0, 0);
-            this.tablePermissions.Controls.Add(this.CheckBox2, 0, 1);
-            this.tablePermissions.Controls.Add(this.CheckBox3, 1, 0);
-            this.tablePermissions.Controls.Add(this.CheckBox4, 1, 1);
-            this.tablePermissions.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tablePermissions.Location = new System.Drawing.Point(3, 16);
-            this.tablePermissions.Name = "tablePermissions";
-            this.tablePermissions.RowCount = 2;
-            this.tablePermissions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tablePermissions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tablePermissions.Size = new System.Drawing.Size(404, 42);
-            this.tablePermissions.TabIndex = 1;
-            // 
-            // CheckBox2
-            // 
-            this.CheckBox2.AutoSize = true;
-            this.CheckBox2.Location = new System.Drawing.Point(3, 24);
-            this.CheckBox2.Name = "CheckBox2";
-            this.CheckBox2.Size = new System.Drawing.Size(81, 15);
-            this.CheckBox2.TabIndex = 1;
-            this.CheckBox2.Text = "CheckBox2";
-            this.CheckBox2.UseSelectable = true;
-            // 
-            // CheckBox3
-            // 
-            this.CheckBox3.AutoSize = true;
-            this.CheckBox3.Location = new System.Drawing.Point(205, 3);
-            this.CheckBox3.Name = "CheckBox3";
-            this.CheckBox3.Size = new System.Drawing.Size(81, 15);
-            this.CheckBox3.TabIndex = 2;
-            this.CheckBox3.Text = "CheckBox3";
-            this.CheckBox3.UseSelectable = true;
-            // 
-            // CheckBox4
-            // 
-            this.CheckBox4.AutoSize = true;
-            this.CheckBox4.Location = new System.Drawing.Point(205, 24);
-            this.CheckBox4.Name = "CheckBox4";
-            this.CheckBox4.Size = new System.Drawing.Size(81, 15);
-            this.CheckBox4.TabIndex = 3;
-            this.CheckBox4.Text = "CheckBox4";
-            this.CheckBox4.UseSelectable = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // openApplicationFile
             // 
             this.openApplicationFile.FileName = "openApplicationFile";
+            this.openApplicationFile.Filter = "Application|*.exe|All|*.*";
             // 
             // MainForm
             // 
+            this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(450, 250);
             this.Controls.Add(this.panelMain);
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(450, 250);
             this.Name = "MainForm";
+            this.Style = MetroFramework.MetroColorStyle.Silver;
             this.Text = "Windows Sandbox Tool";
+            this.Theme = MetroFramework.MetroThemeStyle.Default;
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
+            this.groupPermissions.ResumeLayout(false);
+            this.groupPermissions.PerformLayout();
+            this.tablePermissions.ResumeLayout(false);
+            this.tablePermissions.PerformLayout();
             this.groupApplication.ResumeLayout(false);
             this.groupApplication.PerformLayout();
             this.tableApplication.ResumeLayout(false);
             this.tableApplication.PerformLayout();
             this.tableButtons.ResumeLayout(false);
-            this.groupPermissions.ResumeLayout(false);
-            this.groupPermissions.PerformLayout();
-            this.tablePermissions.ResumeLayout(false);
-            this.tablePermissions.PerformLayout();
             this.ResumeLayout(false);
 
         }

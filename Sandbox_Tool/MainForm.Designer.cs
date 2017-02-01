@@ -34,14 +34,19 @@
             this.lblApplicationOpen = new MetroFramework.Controls.MetroLabel();
             this.txtBoxApplicationPath = new MetroFramework.Controls.MetroTextBox();
             this.btnApplicationBrowse = new MetroFramework.Controls.MetroButton();
+            this.tableButtons = new System.Windows.Forms.TableLayoutPanel();
+            this.btnOK = new MetroFramework.Controls.MetroButton();
+            this.btnCancel = new MetroFramework.Controls.MetroButton();
             this.panelMain.SuspendLayout();
             this.groupApplication.SuspendLayout();
             this.tableApplication.SuspendLayout();
+            this.tableButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMain
             // 
             this.panelMain.Controls.Add(this.groupApplication);
+            this.panelMain.Controls.Add(this.tableButtons);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.HorizontalScrollbarBarColor = true;
             this.panelMain.HorizontalScrollbarHighlightOnWheel = false;
@@ -140,6 +145,42 @@
             this.btnApplicationBrowse.Text = "...";
             this.btnApplicationBrowse.UseSelectable = true;
             // 
+            // tableButtons
+            // 
+            this.tableButtons.AutoSize = true;
+            this.tableButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableButtons.ColumnCount = 3;
+            this.tableButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableButtons.Controls.Add(this.btnOK, 1, 0);
+            this.tableButtons.Controls.Add(this.btnCancel, 2, 0);
+            this.tableButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tableButtons.Location = new System.Drawing.Point(0, 191);
+            this.tableButtons.Name = "tableButtons";
+            this.tableButtons.RowCount = 1;
+            this.tableButtons.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableButtons.Size = new System.Drawing.Size(410, 29);
+            this.tableButtons.TabIndex = 3;
+            // 
+            // btnOK
+            // 
+            this.btnOK.Location = new System.Drawing.Point(251, 3);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 0;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseSelectable = true;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(332, 3);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 1;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseSelectable = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -155,6 +196,7 @@
             this.groupApplication.PerformLayout();
             this.tableApplication.ResumeLayout(false);
             this.tableApplication.PerformLayout();
+            this.tableButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -167,6 +209,9 @@
         private MetroFramework.Controls.MetroLabel lblApplicationOpen;
         private MetroFramework.Controls.MetroTextBox txtBoxApplicationPath;
         private MetroFramework.Controls.MetroButton btnApplicationBrowse;
+        private System.Windows.Forms.TableLayoutPanel tableButtons;
+        private MetroFramework.Controls.MetroButton btnOK;
+        private MetroFramework.Controls.MetroButton btnCancel;
     }
 }
 

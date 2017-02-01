@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Sandbox_Tool
 {
-    public partial class Form1 : Form
+    public partial class MainForm : MetroFramework.Forms.MetroForm
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }

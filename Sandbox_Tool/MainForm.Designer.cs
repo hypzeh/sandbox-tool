@@ -43,6 +43,7 @@
             this.CheckBox2 = new MetroFramework.Controls.MetroCheckBox();
             this.CheckBox3 = new MetroFramework.Controls.MetroCheckBox();
             this.CheckBox4 = new MetroFramework.Controls.MetroCheckBox();
+            this.openApplicationFile = new System.Windows.Forms.OpenFileDialog();
             this.panelMain.SuspendLayout();
             this.groupApplication.SuspendLayout();
             this.tableApplication.SuspendLayout();
@@ -62,7 +63,7 @@
             this.panelMain.HorizontalScrollbarSize = 10;
             this.panelMain.Location = new System.Drawing.Point(20, 60);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(410, 220);
+            this.panelMain.Size = new System.Drawing.Size(410, 170);
             this.panelMain.TabIndex = 0;
             this.panelMain.VerticalScrollbarBarColor = true;
             this.panelMain.VerticalScrollbarHighlightOnWheel = false;
@@ -153,6 +154,7 @@
             this.btnApplicationBrowse.TabIndex = 2;
             this.btnApplicationBrowse.Text = "...";
             this.btnApplicationBrowse.UseSelectable = true;
+            this.btnApplicationBrowse.Click += new System.EventHandler(this.btnApplicationBrowse_Click);
             // 
             // tableButtons
             // 
@@ -165,7 +167,7 @@
             this.tableButtons.Controls.Add(this.btnOK, 1, 0);
             this.tableButtons.Controls.Add(this.btnCancel, 2, 0);
             this.tableButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableButtons.Location = new System.Drawing.Point(0, 191);
+            this.tableButtons.Location = new System.Drawing.Point(0, 141);
             this.tableButtons.Name = "tableButtons";
             this.tableButtons.RowCount = 1;
             this.tableButtons.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -263,13 +265,17 @@
             this.CheckBox4.Text = "CheckBox4";
             this.CheckBox4.UseSelectable = true;
             // 
+            // openApplicationFile
+            // 
+            this.openApplicationFile.FileName = "openApplicationFile";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 300);
+            this.ClientSize = new System.Drawing.Size(450, 250);
             this.Controls.Add(this.panelMain);
-            this.MinimumSize = new System.Drawing.Size(450, 300);
+            this.MinimumSize = new System.Drawing.Size(450, 250);
             this.Name = "MainForm";
             this.Text = "Windows Sandbox Tool";
             this.panelMain.ResumeLayout(false);
@@ -304,6 +310,7 @@
         private MetroFramework.Controls.MetroCheckBox CheckBox2;
         private MetroFramework.Controls.MetroCheckBox CheckBox3;
         private MetroFramework.Controls.MetroCheckBox CheckBox4;
+        private System.Windows.Forms.OpenFileDialog openApplicationFile;
     }
 }
 

@@ -17,11 +17,13 @@ namespace Sandbox_Tool
         string appFilePath          = "None";
         DialogResult appFileResult  = DialogResult.None;
 
+        //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||MAIN FORM
         public MainForm()
         {
             InitializeComponent();
         }
 
+        //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||APPLICATION BROWSER
         private void btnApplicationBrowse_Click(object sender, EventArgs e)
         {
             appFileResult = openApplicationFile.ShowDialog();
@@ -37,9 +39,16 @@ namespace Sandbox_Tool
             }
         }
 
+        //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||BUTTON CANCEL
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||BUTTON OK
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -9,12 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Forms;
 using System.IO;
+using System.Security.Policy;
+using System.Security;
+using System.Security.Permissions;
+using System.Runtime.Remoting;
+using System.Reflection;
 
 namespace Sandbox_Tool
 {
     public partial class MainForm : MetroFramework.Forms.MetroForm
     {
-        string appFilePath          = "None";
+        string appFilePath          = null;
+        string appAssemblyName      = null;
         DialogResult appFileResult  = DialogResult.None;
 
         //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||MAIN FORM
@@ -30,8 +36,7 @@ namespace Sandbox_Tool
 
             if (appFileResult == DialogResult.OK)
             {
-                appFilePath                 = openApplicationFile.FileName;
-                txtBoxApplicationPath.Text  = appFilePath;
+                txtBoxApplicationPath.Text  = openApplicationFile.FileName;
             }
             else
             {
@@ -48,6 +53,31 @@ namespace Sandbox_Tool
         //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||BUTTON OK
         private void btnOK_Click(object sender, EventArgs e)
         {
+            appFilePath = txtBoxApplicationPath.Text;
+            appAssemblyName = Path.GetFileNameWithoutExtension(txtBoxApplicationPath.Text);
+
+            Evidence ev = new Evidence();
+            ev.AddHostEvidence(new Zone(SecurityZone.MyComputer));
+
+            AppDomainSetup adSetup = new AppDomainSetup();
+            adSetup.ApplicationBase = Path.GetDirectoryName(appFilePath);
+
+            PermissionSet permSet = SecurityManager.GetStandardSandbox(ev);
+            permSet.AddPermission(new SecurityPermission(SecurityPermissionFlag.Execution));
+            permSet.AddPermission(new UIPermission(UIPermissionWindow.AllWindows)); // potentially
+            permSet.AddPermission(new UIPermission(UIPermissionClipboard.AllClipboard)); // potentially
+
+            StrongName fullTrustAssembly = typeof(Sandboxer).Assembly.Evidence.GetHostEvidence<StrongName>();
+
+            AppDomain newDomain = AppDomain.CreateDomain("Sandbox", ev, adSetup, permSet, fullTrustAssembly);
+
+            ObjectHandle handle = Activator.CreateInstanceFrom(
+                newDomain,
+                typeof(Sandboxer).Assembly.ManifestModule.FullyQualifiedName,
+                typeof(Sandboxer).FullName);
+
+            Sandboxer newDomainInstance = (Sandboxer)handle.Unwrap();
+            newDomainInstance.ExecuteUntrustedCode(appAssemblyName);
 
         }
     }

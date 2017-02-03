@@ -44,16 +44,18 @@
             this.openApplicationFile = new System.Windows.Forms.OpenFileDialog();
             this.lblApplicationOpen = new MetroFramework.Controls.MetroLabel();
             this.txtBoxApplicationPath = new MetroFramework.Controls.MetroTextBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.metroToggle1 = new MetroFramework.Controls.MetroToggle();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.tableAdvanced = new System.Windows.Forms.TableLayoutPanel();
+            this.toggleAdvanced = new MetroFramework.Controls.MetroToggle();
+            this.lblAdvanced = new MetroFramework.Controls.MetroLabel();
+            this.lblApplicationParam = new MetroFramework.Controls.MetroLabel();
+            this.txtBoxApplicationParam = new MetroFramework.Controls.MetroTextBox();
             this.panelMain.SuspendLayout();
             this.groupPermissions.SuspendLayout();
             this.tablePermissions.SuspendLayout();
             this.groupApplication.SuspendLayout();
             this.tableApplication.SuspendLayout();
             this.tableButtons.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tableAdvanced.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMain
@@ -82,7 +84,7 @@
             this.groupPermissions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupPermissions.Controls.Add(this.tablePermissions);
             this.groupPermissions.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupPermissions.Location = new System.Drawing.Point(0, 48);
+            this.groupPermissions.Location = new System.Drawing.Point(0, 77);
             this.groupPermissions.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupPermissions.Name = "groupPermissions";
             this.groupPermissions.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -166,7 +168,7 @@
             this.groupApplication.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupApplication.Name = "groupApplication";
             this.groupApplication.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.groupApplication.Size = new System.Drawing.Size(574, 48);
+            this.groupApplication.Size = new System.Drawing.Size(574, 77);
             this.groupApplication.TabIndex = 2;
             this.groupApplication.TabStop = false;
             this.groupApplication.Text = "Application";
@@ -179,17 +181,19 @@
             this.tableApplication.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableApplication.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableApplication.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableApplication.Controls.Add(this.lblApplicationParam, 0, 1);
             this.tableApplication.Controls.Add(this.lblApplicationOpen, 0, 0);
             this.tableApplication.Controls.Add(this.txtBoxApplicationPath, 1, 0);
+            this.tableApplication.Controls.Add(this.txtBoxApplicationParam, 0, 1);
             this.tableApplication.Controls.Add(this.btnApplicationBrowse, 2, 0);
             this.tableApplication.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableApplication.Location = new System.Drawing.Point(2, 16);
             this.tableApplication.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tableApplication.Name = "tableApplication";
-            this.tableApplication.RowCount = 1;
+            this.tableApplication.RowCount = 2;
             this.tableApplication.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableApplication.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableApplication.Size = new System.Drawing.Size(570, 29);
+            this.tableApplication.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableApplication.Size = new System.Drawing.Size(570, 58);
             this.tableApplication.TabIndex = 0;
             // 
             // btnApplicationBrowse
@@ -254,11 +258,10 @@
             // 
             // lblApplicationOpen
             // 
-            this.lblApplicationOpen.AutoSize = true;
             this.lblApplicationOpen.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblApplicationOpen.Location = new System.Drawing.Point(3, 0);
             this.lblApplicationOpen.Name = "lblApplicationOpen";
-            this.lblApplicationOpen.Size = new System.Drawing.Size(45, 29);
+            this.lblApplicationOpen.Size = new System.Drawing.Size(50, 29);
             this.lblApplicationOpen.TabIndex = 0;
             this.lblApplicationOpen.Text = "Open:";
             this.lblApplicationOpen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -269,7 +272,7 @@
             // 
             // 
             this.txtBoxApplicationPath.CustomButton.Image = null;
-            this.txtBoxApplicationPath.CustomButton.Location = new System.Drawing.Point(461, 1);
+            this.txtBoxApplicationPath.CustomButton.Location = new System.Drawing.Point(456, 1);
             this.txtBoxApplicationPath.CustomButton.Name = "";
             this.txtBoxApplicationPath.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtBoxApplicationPath.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -279,7 +282,7 @@
             this.txtBoxApplicationPath.CustomButton.Visible = false;
             this.txtBoxApplicationPath.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtBoxApplicationPath.Lines = new string[0];
-            this.txtBoxApplicationPath.Location = new System.Drawing.Point(54, 3);
+            this.txtBoxApplicationPath.Location = new System.Drawing.Point(59, 3);
             this.txtBoxApplicationPath.MaxLength = 32767;
             this.txtBoxApplicationPath.Name = "txtBoxApplicationPath";
             this.txtBoxApplicationPath.PasswordChar = '\0';
@@ -288,54 +291,99 @@
             this.txtBoxApplicationPath.SelectionLength = 0;
             this.txtBoxApplicationPath.SelectionStart = 0;
             this.txtBoxApplicationPath.ShortcutsEnabled = true;
-            this.txtBoxApplicationPath.Size = new System.Drawing.Size(483, 23);
+            this.txtBoxApplicationPath.Size = new System.Drawing.Size(478, 23);
             this.txtBoxApplicationPath.Style = MetroFramework.MetroColorStyle.Silver;
             this.txtBoxApplicationPath.TabIndex = 1;
             this.txtBoxApplicationPath.UseSelectable = true;
             this.txtBoxApplicationPath.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtBoxApplicationPath.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // tableLayoutPanel1
+            // tableAdvanced
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.AutoSize = true;
-            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Controls.Add(this.metroToggle1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.metroLabel1, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(442, 38);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(152, 23);
-            this.tableLayoutPanel1.TabIndex = 5;
+            this.tableAdvanced.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableAdvanced.AutoSize = true;
+            this.tableAdvanced.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableAdvanced.ColumnCount = 2;
+            this.tableAdvanced.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableAdvanced.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableAdvanced.Controls.Add(this.toggleAdvanced, 0, 0);
+            this.tableAdvanced.Controls.Add(this.lblAdvanced, 1, 0);
+            this.tableAdvanced.Location = new System.Drawing.Point(442, 38);
+            this.tableAdvanced.Name = "tableAdvanced";
+            this.tableAdvanced.RowCount = 1;
+            this.tableAdvanced.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableAdvanced.Size = new System.Drawing.Size(152, 23);
+            this.tableAdvanced.TabIndex = 5;
             // 
-            // metroToggle1
+            // toggleAdvanced
             // 
-            this.metroToggle1.AutoSize = true;
-            this.metroToggle1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.metroToggle1.FontWeight = MetroFramework.MetroLinkWeight.Light;
-            this.metroToggle1.Location = new System.Drawing.Point(3, 3);
-            this.metroToggle1.Name = "metroToggle1";
-            this.metroToggle1.Size = new System.Drawing.Size(80, 17);
-            this.metroToggle1.TabIndex = 0;
-            this.metroToggle1.Text = "Off";
-            this.metroToggle1.UseSelectable = true;
+            this.toggleAdvanced.AutoSize = true;
+            this.toggleAdvanced.Dock = System.Windows.Forms.DockStyle.Right;
+            this.toggleAdvanced.FontWeight = MetroFramework.MetroLinkWeight.Light;
+            this.toggleAdvanced.Location = new System.Drawing.Point(3, 3);
+            this.toggleAdvanced.Name = "toggleAdvanced";
+            this.toggleAdvanced.Size = new System.Drawing.Size(80, 17);
+            this.toggleAdvanced.TabIndex = 0;
+            this.toggleAdvanced.Text = "Off";
+            this.toggleAdvanced.UseSelectable = true;
+            this.toggleAdvanced.CheckedChanged += new System.EventHandler(this.toggleAdvanced_CheckedChanged);
             // 
-            // metroLabel1
+            // lblAdvanced
             // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.Location = new System.Drawing.Point(89, 0);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(60, 23);
-            this.metroLabel1.TabIndex = 1;
-            this.metroLabel1.Text = "Advanced";
-            this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblAdvanced.AutoSize = true;
+            this.lblAdvanced.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblAdvanced.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblAdvanced.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblAdvanced.Location = new System.Drawing.Point(89, 0);
+            this.lblAdvanced.Name = "lblAdvanced";
+            this.lblAdvanced.Size = new System.Drawing.Size(60, 23);
+            this.lblAdvanced.TabIndex = 1;
+            this.lblAdvanced.Text = "Advanced";
+            this.lblAdvanced.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblApplicationParam
+            // 
+            this.lblApplicationParam.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblApplicationParam.Location = new System.Drawing.Point(3, 29);
+            this.lblApplicationParam.Name = "lblApplicationParam";
+            this.lblApplicationParam.Size = new System.Drawing.Size(50, 29);
+            this.lblApplicationParam.TabIndex = 3;
+            this.lblApplicationParam.Text = "Param:";
+            this.lblApplicationParam.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblApplicationParam.Visible = false;
+            // 
+            // txtBoxApplicationParam
+            // 
+            // 
+            // 
+            // 
+            this.txtBoxApplicationParam.CustomButton.Image = null;
+            this.txtBoxApplicationParam.CustomButton.Location = new System.Drawing.Point(456, 1);
+            this.txtBoxApplicationParam.CustomButton.Name = "";
+            this.txtBoxApplicationParam.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtBoxApplicationParam.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtBoxApplicationParam.CustomButton.TabIndex = 1;
+            this.txtBoxApplicationParam.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtBoxApplicationParam.CustomButton.UseSelectable = true;
+            this.txtBoxApplicationParam.CustomButton.Visible = false;
+            this.txtBoxApplicationParam.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtBoxApplicationParam.Lines = new string[0];
+            this.txtBoxApplicationParam.Location = new System.Drawing.Point(59, 32);
+            this.txtBoxApplicationParam.MaxLength = 32767;
+            this.txtBoxApplicationParam.Name = "txtBoxApplicationParam";
+            this.txtBoxApplicationParam.PasswordChar = '\0';
+            this.txtBoxApplicationParam.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtBoxApplicationParam.SelectedText = "";
+            this.txtBoxApplicationParam.SelectionLength = 0;
+            this.txtBoxApplicationParam.SelectionStart = 0;
+            this.txtBoxApplicationParam.ShortcutsEnabled = true;
+            this.txtBoxApplicationParam.Size = new System.Drawing.Size(478, 23);
+            this.txtBoxApplicationParam.Style = MetroFramework.MetroColorStyle.Silver;
+            this.txtBoxApplicationParam.TabIndex = 4;
+            this.txtBoxApplicationParam.UseSelectable = true;
+            this.txtBoxApplicationParam.Visible = false;
+            this.txtBoxApplicationParam.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtBoxApplicationParam.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // MainForm
             // 
@@ -344,7 +392,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(614, 397);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tableAdvanced);
             this.Controls.Add(this.panelMain);
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MaximizeBox = false;
@@ -364,8 +412,8 @@
             this.tableApplication.ResumeLayout(false);
             this.tableApplication.PerformLayout();
             this.tableButtons.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.tableAdvanced.ResumeLayout(false);
+            this.tableAdvanced.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -389,9 +437,11 @@
         private System.Windows.Forms.OpenFileDialog openApplicationFile;
         private MetroFramework.Controls.MetroLabel lblApplicationOpen;
         private MetroFramework.Controls.MetroTextBox txtBoxApplicationPath;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private MetroFramework.Controls.MetroToggle metroToggle1;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private System.Windows.Forms.TableLayoutPanel tableAdvanced;
+        private MetroFramework.Controls.MetroToggle toggleAdvanced;
+        private MetroFramework.Controls.MetroLabel lblAdvanced;
+        private MetroFramework.Controls.MetroLabel lblApplicationParam;
+        private MetroFramework.Controls.MetroTextBox txtBoxApplicationParam;
     }
 }
 

@@ -80,5 +80,19 @@ namespace Sandbox_Tool
             newDomainInstance.ExecuteUntrustedCode(appAssemblyName);
 
         }
+
+        private void toggleAdvanced_CheckedChanged(object sender, EventArgs e)
+        {
+            if (toggleAdvanced.CheckState == CheckState.Checked)
+            {
+                lblApplicationParam.Visible = true;
+                txtBoxApplicationParam.Visible = true;
+            }
+            else
+            {
+                lblApplicationParam.Visible = false;
+                txtBoxApplicationParam.Visible = false;
+            }
+        }
     }
 }

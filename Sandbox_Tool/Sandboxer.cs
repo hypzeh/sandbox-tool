@@ -12,15 +12,17 @@ namespace Sandbox_Tool
             //Load the MethodInfo for a method in the new Assembly. This might be a method you know, or 
             //you can use Assembly.EntryPoint to get to the main function in an executable.
             MethodInfo target = Assembly.Load(assemblyName).EntryPoint;
+            object[] appParamObject = new object[] { appParam };
+
             if (target.GetParameters().Length == 0)
             {
-                appParam = null;
+                appParamObject = null;
             }
             
             try
             {
                 //Now invoke the method.   
-                target.Invoke(null, new object[] { appParam });
+                target.Invoke(null, appParamObject);
             }
             catch (Exception ex)
             {

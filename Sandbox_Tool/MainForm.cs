@@ -21,6 +21,7 @@ namespace Sandbox_Tool
         public MainForm()
         {
             InitializeComponent();
+            LogThis("Choose Application...");
         }
 
         public void LogThis(string logString)
@@ -83,11 +84,6 @@ namespace Sandbox_Tool
                 }
                 CodeAccessPermission.RevertAssert();
             }
-        }
-
-        private void btnLogTest_Click(object sender, EventArgs e)
-        {
-            LogThis("TEST");
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)

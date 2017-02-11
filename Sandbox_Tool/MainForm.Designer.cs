@@ -36,6 +36,8 @@
             this.btnBrowse = new System.Windows.Forms.Button();
             this.openApplicaitonDialog = new System.Windows.Forms.OpenFileDialog();
             this.txtApplicaitonParam = new System.Windows.Forms.TextBox();
+            this.checkUnrestricted = new System.Windows.Forms.CheckBox();
+            this.checkIO = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txtLog
@@ -46,7 +48,7 @@
             this.txtLog.Name = "txtLog";
             this.txtLog.ReadOnly = true;
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtLog.Size = new System.Drawing.Size(672, 126);
+            this.txtLog.Size = new System.Drawing.Size(1005, 126);
             this.txtLog.TabIndex = 0;
             // 
             // btnCancel
@@ -112,13 +114,35 @@
             this.txtApplicaitonParam.Size = new System.Drawing.Size(496, 20);
             this.txtApplicaitonParam.TabIndex = 6;
             // 
+            // checkUnrestricted
+            // 
+            this.checkUnrestricted.AutoSize = true;
+            this.checkUnrestricted.Location = new System.Drawing.Point(13, 67);
+            this.checkUnrestricted.Name = "checkUnrestricted";
+            this.checkUnrestricted.Size = new System.Drawing.Size(83, 17);
+            this.checkUnrestricted.TabIndex = 7;
+            this.checkUnrestricted.Text = "Unrestricted";
+            this.checkUnrestricted.UseVisualStyleBackColor = true;
+            // 
+            // checkIO
+            // 
+            this.checkIO.AutoSize = true;
+            this.checkIO.Location = new System.Drawing.Point(13, 91);
+            this.checkIO.Name = "checkIO";
+            this.checkIO.Size = new System.Drawing.Size(87, 17);
+            this.checkIO.TabIndex = 8;
+            this.checkIO.Text = "Input/Output";
+            this.checkIO.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(696, 379);
+            this.ClientSize = new System.Drawing.Size(1029, 379);
+            this.Controls.Add(this.checkIO);
+            this.Controls.Add(this.checkUnrestricted);
             this.Controls.Add(this.txtApplicaitonParam);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.txtApplicationPath);
@@ -145,6 +169,8 @@
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.OpenFileDialog openApplicaitonDialog;
         private System.Windows.Forms.TextBox txtApplicaitonParam;
+        private System.Windows.Forms.CheckBox checkUnrestricted;
+        private System.Windows.Forms.CheckBox checkIO;
     }
 }
 

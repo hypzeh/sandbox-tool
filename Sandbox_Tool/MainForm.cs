@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Runtime.Remoting;
 using System.Security;
 using System.Security.Permissions;
@@ -83,57 +84,81 @@ namespace Sandbox_Tool
             this.Close();
         }
 
-        private void btnOK_Click(object sender, EventArgs e)
-        {            
+        private PermissionSet pSet()
+        {
             PermissionSet permSet = checkUnrestricted.CheckState == CheckState.Checked
                 ? new PermissionSet(PermissionState.Unrestricted) : new PermissionSet(PermissionState.None);
 
+            // Default Permissions required by assembly
             permSet.AddPermission(new SecurityPermission(SecurityPermissionFlag.Execution));
-            permSet.AddPermission(new ReflectionPermission(PermissionState.Unrestricted));
-            // UNMANGED CODE REQUIRED FOR ALLOCCONSOLE & FREECONSOLE
-            permSet.AddPermission(new SecurityPermission(SecurityPermissionFlag.UnmanagedCode));
+            permSet.AddPermission(new FileIOPermission(FileIOPermissionAccess.Read, txtApplicationPath.Text));
+            permSet.AddPermission(new FileIOPermission(FileIOPermissionAccess.PathDiscovery, txtApplicationPath.Text));
 
+            // Chosen Permissions
             permSet.AddPermission(checkIO.CheckState == CheckState.Checked ?
                 new FileIOPermission(PermissionState.Unrestricted) : new FileIOPermission(PermissionState.None));
 
+            permSet.AddPermission(checkUI.CheckState == CheckState.Checked ?
+                new UIPermission(PermissionState.Unrestricted) : new UIPermission(PermissionState.None));
+
+            permSet.AddPermission(checkFileDialog.CheckState == CheckState.Checked ?
+                new FileDialogPermission(PermissionState.Unrestricted) : new FileDialogPermission(PermissionState.None));
+
+            permSet.AddPermission(checkSecurity.CheckState == CheckState.Checked ?
+                new SecurityPermission(PermissionState.Unrestricted) : new SecurityPermission(PermissionState.None));
+
+            permSet.AddPermission(checkIsolatedStorage.CheckState == CheckState.Checked ?
+                new IsolatedStorageFilePermission(PermissionState.Unrestricted) : new IsolatedStorageFilePermission(PermissionState.None));
+
+            permSet.AddPermission(checkEnvironment.CheckState == CheckState.Checked ?
+                new EnvironmentPermission(PermissionState.Unrestricted) : new EnvironmentPermission(PermissionState.None));
+
+            permSet.AddPermission(checkKeyContainer.CheckState == CheckState.Checked ?
+                new KeyContainerPermission(PermissionState.Unrestricted) : new KeyContainerPermission(PermissionState.None));
+
+            permSet.AddPermission(checkPrincipal.CheckState == CheckState.Checked ?
+                new PrincipalPermission(PermissionState.Unrestricted) : new PrincipalPermission(PermissionState.None));
+
+            permSet.AddPermission(checkReflection.CheckState == CheckState.Checked ?
+                new ReflectionPermission(PermissionState.Unrestricted) : new ReflectionPermission(PermissionState.None));
+
+            permSet.AddPermission(checkReflection.CheckState == CheckState.Checked ?
+                new RegistryPermission(PermissionState.Unrestricted) : new RegistryPermission(PermissionState.None));
+
+            permSet.AddPermission(checkStore.CheckState == CheckState.Checked ?
+                new StorePermission(PermissionState.Unrestricted) : new StorePermission(PermissionState.None));
+
+            permSet.AddPermission(checkTypeDescriptor.CheckState == CheckState.Checked ?
+                new TypeDescriptorPermission(PermissionState.Unrestricted) : new TypeDescriptorPermission(PermissionState.None));
+
+            permSet.AddPermission(checkWeb.CheckState == CheckState.Checked ?
+                new WebPermission(PermissionState.Unrestricted) : new WebPermission(PermissionState.None));
+
+            return permSet;
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
             Sandboxer appSandbox = new Sandboxer();
+
             LogThis("Executing " + Path.GetFileName(txtApplicationPath.Text));
+
             try
             {
-                appSandbox.ApplicationInitialise(txtApplicationPath.Text, txtApplicaitonParam.Text, permSet);
+                appSandbox.ApplicationInitialise(txtApplicationPath.Text, txtApplicaitonParam.Text, pSet());
             }
             catch (SecurityException ex)
             {
                 LogThis("ERROR : " + ex.Action.ToString());
                 if (ex.Action.ToString() == "Demand")
                 {
-                    LogThis(Regex.Replace(ex.Demanded.ToString(), @"\t|\n|\r", " "));
+                    LogThis("ERROR : " + ex.Demanded.ToString());
                 }
             }
 
-            
-            LogThis("Application Closed.");
-            ManageHistory();
 
-            //try
-            //{
-            //    LogThis("Executing...");
-            //    newDomainInstance.ExecuteUntrustedCode(appAssemblyName, appFileParam);
-            //    LogThis("Application ended successfully.");
-            //}
-            //catch (SecurityException ex)
-            //{
-            //    // When we print informations from a SecurityException extra information can be printed if we are 
-            //    //calling it with a full-trust stack.
-            //    (new PermissionSet(PermissionState.Unrestricted)).Assert();
-            //    Console.WriteLine("SecurityException caught:\n{0}", ex.ToString());
-            //    LogThis("ERROR : " + ex.Action.ToString());
-            //    if (ex.Action.ToString() == "Demand")
-            //    {
-            //        LogThis(Regex.Replace(ex.Demanded.ToString(), @"\t|\n|\r", " "));
-            //    }
-            //    CodeAccessPermission.RevertAssert();
-            //}
+            LogThis(Path.GetFileName(txtApplicationPath.Text) + " Finished.");
+            ManageHistory();
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -146,6 +171,25 @@ namespace Sandbox_Tool
                 btnOK.Enabled = true;
                 LogThis(Path.GetFileName(txtApplicationPath.Text) + " selected.");
             }
+        }
+
+        private void btnLogToggle_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnLogToggle.CheckState == CheckState.Checked)
+            {
+                btnLogToggle.Text = "Hide Log";
+                tableLog.Visible = true;
+            }
+            else
+            {
+                btnLogToggle.Text = "Show Log";
+                tableLog.Visible = false;
+            }
+        }
+
+        private void btnLogClear_Click(object sender, EventArgs e)
+        {
+            txtLog.ResetText();
         }
     }
 }

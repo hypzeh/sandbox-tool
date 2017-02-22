@@ -15,12 +15,6 @@ namespace Sandbox_Tool
 {
     class Sandboxer : MarshalByRefObject
     {
-        [DllImport("kernel32.dll")]
-        public static extern bool AllocConsole();
-
-        [DllImport("kernel32.dll")]
-        public static extern bool FreeConsole();
-
         public void ApplicationInitialise(string txtAppPath, string txtAppParam, PermissionSet permSet)
         {
             string appFilePath = Path.GetDirectoryName(txtAppPath);
@@ -41,7 +35,12 @@ namespace Sandbox_Tool
                 typeof(Sandboxer).FullName);
 
             Sandboxer newDomainInstance = (Sandboxer)handle.Unwrap();
-            newDomainInstance.ExecuteUntrustedCode(appAssemblyName, appFileParam);
+            Console.WriteLine("--- {0} STARTED ---", appAssemblyName);
+
+            newDomain.ExecuteAssembly(txtAppPath, appFileParam);
+            //newDomainInstance.ExecuteUntrustedCode(appAssemblyName, appFileParam);
+            Console.WriteLine("--- {0} FINISHED ---", appAssemblyName);
+            Console.WriteLine();
         }
 
         public void ExecuteUntrustedCode(string assemblyName, string[] appParam)
@@ -56,15 +55,9 @@ namespace Sandbox_Tool
             {
                 appParamObject = null;
             }
-            else
-            {
-                AllocConsole();
-            }
 
             target.Invoke(null, appParamObject);
 
-            Console.ReadLine();
-            FreeConsole();
         }
     }
 }

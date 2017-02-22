@@ -44,10 +44,24 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLog = new System.Windows.Forms.TableLayoutPanel();
             this.tableButtons = new System.Windows.Forms.TableLayoutPanel();
+            this.btnLogClear = new System.Windows.Forms.Button();
+            this.btnLogToggle = new System.Windows.Forms.CheckBox();
             this.tablePermissions = new System.Windows.Forms.TableLayoutPanel();
             this.tabPermissionsControl = new System.Windows.Forms.TabControl();
             this.tabPermissionsBasic = new System.Windows.Forms.TabPage();
+            this.checkTypeDescriptor = new System.Windows.Forms.CheckBox();
+            this.checkStore = new System.Windows.Forms.CheckBox();
+            this.checkRegistry = new System.Windows.Forms.CheckBox();
+            this.checkReflection = new System.Windows.Forms.CheckBox();
+            this.checkPrincipal = new System.Windows.Forms.CheckBox();
+            this.checkKeyContainer = new System.Windows.Forms.CheckBox();
+            this.checkEnvironment = new System.Windows.Forms.CheckBox();
+            this.checkIsolatedStorage = new System.Windows.Forms.CheckBox();
+            this.checkSecurity = new System.Windows.Forms.CheckBox();
+            this.checkUI = new System.Windows.Forms.CheckBox();
+            this.checkFileDialog = new System.Windows.Forms.CheckBox();
             this.tableApplication = new System.Windows.Forms.TableLayoutPanel();
+            this.checkWeb = new System.Windows.Forms.CheckBox();
             this.groupApplication.SuspendLayout();
             this.tableApplicationLayout.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -68,16 +82,16 @@
             this.txtLog.Name = "txtLog";
             this.txtLog.ReadOnly = true;
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtLog.Size = new System.Drawing.Size(772, 128);
+            this.txtLog.Size = new System.Drawing.Size(772, 157);
             this.txtLog.TabIndex = 10;
             this.txtLog.TabStop = false;
             // 
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(700, 3);
+            this.btnCancel.Location = new System.Drawing.Point(701, 3);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(74, 23);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -85,9 +99,9 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(619, 3);
+            this.btnOK.Location = new System.Drawing.Point(621, 3);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.Size = new System.Drawing.Size(74, 23);
             this.btnOK.TabIndex = 3;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -107,7 +121,7 @@
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(539, 3);
+            this.btnBrowse.Location = new System.Drawing.Point(541, 3);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(74, 23);
             this.btnBrowse.TabIndex = 1;
@@ -222,7 +236,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(3);
-            this.panel1.Size = new System.Drawing.Size(784, 361);
+            this.panel1.Size = new System.Drawing.Size(784, 461);
             this.panel1.TabIndex = 10;
             // 
             // tableLog
@@ -233,7 +247,7 @@
             this.tableLog.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLog.Controls.Add(this.txtLog, 0, 0);
             this.tableLog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLog.Location = new System.Drawing.Point(3, 224);
+            this.tableLog.Location = new System.Drawing.Point(3, 324);
             this.tableLog.Name = "tableLog";
             this.tableLog.RowCount = 1;
             this.tableLog.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -244,21 +258,51 @@
             // 
             this.tableButtons.AutoSize = true;
             this.tableButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableButtons.ColumnCount = 4;
+            this.tableButtons.ColumnCount = 6;
+            this.tableButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableButtons.Controls.Add(this.btnCancel, 3, 0);
-            this.tableButtons.Controls.Add(this.btnOK, 2, 0);
-            this.tableButtons.Controls.Add(this.btnBrowse, 1, 0);
+            this.tableButtons.Controls.Add(this.btnCancel, 5, 0);
+            this.tableButtons.Controls.Add(this.btnOK, 4, 0);
+            this.tableButtons.Controls.Add(this.btnBrowse, 3, 0);
+            this.tableButtons.Controls.Add(this.btnLogClear, 1, 0);
+            this.tableButtons.Controls.Add(this.btnLogToggle, 0, 0);
             this.tableButtons.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableButtons.Location = new System.Drawing.Point(3, 195);
+            this.tableButtons.Location = new System.Drawing.Point(3, 295);
             this.tableButtons.Name = "tableButtons";
             this.tableButtons.RowCount = 1;
             this.tableButtons.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableButtons.Size = new System.Drawing.Size(778, 29);
             this.tableButtons.TabIndex = 11;
+            // 
+            // btnLogClear
+            // 
+            this.btnLogClear.Location = new System.Drawing.Point(83, 3);
+            this.btnLogClear.Name = "btnLogClear";
+            this.btnLogClear.Size = new System.Drawing.Size(74, 23);
+            this.btnLogClear.TabIndex = 12;
+            this.btnLogClear.TabStop = false;
+            this.btnLogClear.Text = "Clear Log";
+            this.btnLogClear.UseVisualStyleBackColor = true;
+            this.btnLogClear.Click += new System.EventHandler(this.btnLogClear_Click);
+            // 
+            // btnLogToggle
+            // 
+            this.btnLogToggle.Appearance = System.Windows.Forms.Appearance.Button;
+            this.btnLogToggle.Checked = true;
+            this.btnLogToggle.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.btnLogToggle.Location = new System.Drawing.Point(3, 3);
+            this.btnLogToggle.Name = "btnLogToggle";
+            this.btnLogToggle.Size = new System.Drawing.Size(74, 23);
+            this.btnLogToggle.TabIndex = 13;
+            this.btnLogToggle.TabStop = false;
+            this.btnLogToggle.Text = "Hide Log";
+            this.btnLogToggle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnLogToggle.UseVisualStyleBackColor = true;
+            this.btnLogToggle.CheckedChanged += new System.EventHandler(this.btnLogToggle_CheckedChanged);
             // 
             // tablePermissions
             // 
@@ -272,7 +316,8 @@
             this.tablePermissions.Name = "tablePermissions";
             this.tablePermissions.RowCount = 1;
             this.tablePermissions.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tablePermissions.Size = new System.Drawing.Size(778, 106);
+            this.tablePermissions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 206F));
+            this.tablePermissions.Size = new System.Drawing.Size(778, 206);
             this.tablePermissions.TabIndex = 12;
             // 
             // tabPermissionsControl
@@ -283,21 +328,154 @@
             this.tabPermissionsControl.Margin = new System.Windows.Forms.Padding(3, 3, 2, 3);
             this.tabPermissionsControl.Name = "tabPermissionsControl";
             this.tabPermissionsControl.SelectedIndex = 0;
-            this.tabPermissionsControl.Size = new System.Drawing.Size(773, 100);
+            this.tabPermissionsControl.Size = new System.Drawing.Size(773, 200);
             this.tabPermissionsControl.TabIndex = 0;
             this.tabPermissionsControl.TabStop = false;
             // 
             // tabPermissionsBasic
             // 
+            this.tabPermissionsBasic.Controls.Add(this.checkWeb);
+            this.tabPermissionsBasic.Controls.Add(this.checkTypeDescriptor);
+            this.tabPermissionsBasic.Controls.Add(this.checkStore);
+            this.tabPermissionsBasic.Controls.Add(this.checkRegistry);
+            this.tabPermissionsBasic.Controls.Add(this.checkReflection);
+            this.tabPermissionsBasic.Controls.Add(this.checkPrincipal);
+            this.tabPermissionsBasic.Controls.Add(this.checkKeyContainer);
+            this.tabPermissionsBasic.Controls.Add(this.checkEnvironment);
+            this.tabPermissionsBasic.Controls.Add(this.checkIsolatedStorage);
+            this.tabPermissionsBasic.Controls.Add(this.checkSecurity);
             this.tabPermissionsBasic.Controls.Add(this.checkUnrestricted);
             this.tabPermissionsBasic.Controls.Add(this.checkIO);
+            this.tabPermissionsBasic.Controls.Add(this.checkUI);
+            this.tabPermissionsBasic.Controls.Add(this.checkFileDialog);
             this.tabPermissionsBasic.Location = new System.Drawing.Point(4, 22);
             this.tabPermissionsBasic.Name = "tabPermissionsBasic";
             this.tabPermissionsBasic.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPermissionsBasic.Size = new System.Drawing.Size(765, 74);
+            this.tabPermissionsBasic.Size = new System.Drawing.Size(765, 174);
             this.tabPermissionsBasic.TabIndex = 0;
-            this.tabPermissionsBasic.Text = "Basic";
+            this.tabPermissionsBasic.Text = "Permissions Basic";
             this.tabPermissionsBasic.UseVisualStyleBackColor = true;
+            // 
+            // checkTypeDescriptor
+            // 
+            this.checkTypeDescriptor.AutoSize = true;
+            this.checkTypeDescriptor.Location = new System.Drawing.Point(161, 121);
+            this.checkTypeDescriptor.Name = "checkTypeDescriptor";
+            this.checkTypeDescriptor.Size = new System.Drawing.Size(101, 17);
+            this.checkTypeDescriptor.TabIndex = 19;
+            this.checkTypeDescriptor.TabStop = false;
+            this.checkTypeDescriptor.Text = "Type Descriptor";
+            this.checkTypeDescriptor.UseVisualStyleBackColor = true;
+            // 
+            // checkStore
+            // 
+            this.checkStore.AutoSize = true;
+            this.checkStore.Location = new System.Drawing.Point(161, 98);
+            this.checkStore.Name = "checkStore";
+            this.checkStore.Size = new System.Drawing.Size(51, 17);
+            this.checkStore.TabIndex = 18;
+            this.checkStore.TabStop = false;
+            this.checkStore.Text = "Store";
+            this.checkStore.UseVisualStyleBackColor = true;
+            // 
+            // checkRegistry
+            // 
+            this.checkRegistry.AutoSize = true;
+            this.checkRegistry.Location = new System.Drawing.Point(161, 75);
+            this.checkRegistry.Name = "checkRegistry";
+            this.checkRegistry.Size = new System.Drawing.Size(64, 17);
+            this.checkRegistry.TabIndex = 17;
+            this.checkRegistry.TabStop = false;
+            this.checkRegistry.Text = "Registry";
+            this.checkRegistry.UseVisualStyleBackColor = true;
+            // 
+            // checkReflection
+            // 
+            this.checkReflection.AutoSize = true;
+            this.checkReflection.Location = new System.Drawing.Point(161, 52);
+            this.checkReflection.Name = "checkReflection";
+            this.checkReflection.Size = new System.Drawing.Size(74, 17);
+            this.checkReflection.TabIndex = 16;
+            this.checkReflection.TabStop = false;
+            this.checkReflection.Text = "Reflection";
+            this.checkReflection.UseVisualStyleBackColor = true;
+            // 
+            // checkPrincipal
+            // 
+            this.checkPrincipal.AutoSize = true;
+            this.checkPrincipal.Location = new System.Drawing.Point(161, 29);
+            this.checkPrincipal.Name = "checkPrincipal";
+            this.checkPrincipal.Size = new System.Drawing.Size(66, 17);
+            this.checkPrincipal.TabIndex = 15;
+            this.checkPrincipal.TabStop = false;
+            this.checkPrincipal.Text = "Principal";
+            this.checkPrincipal.UseVisualStyleBackColor = true;
+            // 
+            // checkKeyContainer
+            // 
+            this.checkKeyContainer.AutoSize = true;
+            this.checkKeyContainer.Location = new System.Drawing.Point(161, 6);
+            this.checkKeyContainer.Name = "checkKeyContainer";
+            this.checkKeyContainer.Size = new System.Drawing.Size(92, 17);
+            this.checkKeyContainer.TabIndex = 14;
+            this.checkKeyContainer.TabStop = false;
+            this.checkKeyContainer.Text = "Key Container";
+            this.checkKeyContainer.UseVisualStyleBackColor = true;
+            // 
+            // checkEnvironment
+            // 
+            this.checkEnvironment.AutoSize = true;
+            this.checkEnvironment.Location = new System.Drawing.Point(6, 144);
+            this.checkEnvironment.Name = "checkEnvironment";
+            this.checkEnvironment.Size = new System.Drawing.Size(85, 17);
+            this.checkEnvironment.TabIndex = 13;
+            this.checkEnvironment.TabStop = false;
+            this.checkEnvironment.Text = "Environment";
+            this.checkEnvironment.UseVisualStyleBackColor = true;
+            // 
+            // checkIsolatedStorage
+            // 
+            this.checkIsolatedStorage.AutoSize = true;
+            this.checkIsolatedStorage.Location = new System.Drawing.Point(6, 121);
+            this.checkIsolatedStorage.Name = "checkIsolatedStorage";
+            this.checkIsolatedStorage.Size = new System.Drawing.Size(122, 17);
+            this.checkIsolatedStorage.TabIndex = 12;
+            this.checkIsolatedStorage.TabStop = false;
+            this.checkIsolatedStorage.Text = "Isolated Storage File";
+            this.checkIsolatedStorage.UseVisualStyleBackColor = true;
+            // 
+            // checkSecurity
+            // 
+            this.checkSecurity.AutoSize = true;
+            this.checkSecurity.Location = new System.Drawing.Point(6, 98);
+            this.checkSecurity.Name = "checkSecurity";
+            this.checkSecurity.Size = new System.Drawing.Size(64, 17);
+            this.checkSecurity.TabIndex = 11;
+            this.checkSecurity.TabStop = false;
+            this.checkSecurity.Text = "Security";
+            this.checkSecurity.UseVisualStyleBackColor = true;
+            // 
+            // checkUI
+            // 
+            this.checkUI.AutoSize = true;
+            this.checkUI.Location = new System.Drawing.Point(6, 52);
+            this.checkUI.Name = "checkUI";
+            this.checkUI.Size = new System.Drawing.Size(93, 17);
+            this.checkUI.TabIndex = 9;
+            this.checkUI.TabStop = false;
+            this.checkUI.Text = "User Interface";
+            this.checkUI.UseVisualStyleBackColor = true;
+            // 
+            // checkFileDialog
+            // 
+            this.checkFileDialog.AutoSize = true;
+            this.checkFileDialog.Location = new System.Drawing.Point(6, 75);
+            this.checkFileDialog.Name = "checkFileDialog";
+            this.checkFileDialog.Size = new System.Drawing.Size(75, 17);
+            this.checkFileDialog.TabIndex = 10;
+            this.checkFileDialog.TabStop = false;
+            this.checkFileDialog.Text = "File Dialog";
+            this.checkFileDialog.UseVisualStyleBackColor = true;
             // 
             // tableApplication
             // 
@@ -314,17 +492,30 @@
             this.tableApplication.Size = new System.Drawing.Size(778, 86);
             this.tableApplication.TabIndex = 13;
             // 
+            // checkWeb
+            // 
+            this.checkWeb.AutoSize = true;
+            this.checkWeb.Location = new System.Drawing.Point(161, 144);
+            this.checkWeb.Name = "checkWeb";
+            this.checkWeb.Size = new System.Drawing.Size(49, 17);
+            this.checkWeb.TabIndex = 20;
+            this.checkWeb.TabStop = false;
+            this.checkWeb.Text = "Web";
+            this.checkWeb.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(784, 361);
+            this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(800, 400);
+            this.MinimumSize = new System.Drawing.Size(800, 366);
             this.Name = "MainForm";
             this.Text = "Sandbox Tool";
             this.groupApplication.ResumeLayout(false);
@@ -369,6 +560,20 @@
         private System.Windows.Forms.TabPage tabPermissionsBasic;
         private System.Windows.Forms.TableLayoutPanel tablePermissions;
         private System.Windows.Forms.TableLayoutPanel tableApplication;
+        private System.Windows.Forms.Button btnLogClear;
+        private System.Windows.Forms.CheckBox btnLogToggle;
+        private System.Windows.Forms.CheckBox checkUI;
+        private System.Windows.Forms.CheckBox checkFileDialog;
+        private System.Windows.Forms.CheckBox checkSecurity;
+        private System.Windows.Forms.CheckBox checkIsolatedStorage;
+        private System.Windows.Forms.CheckBox checkEnvironment;
+        private System.Windows.Forms.CheckBox checkKeyContainer;
+        private System.Windows.Forms.CheckBox checkPrincipal;
+        private System.Windows.Forms.CheckBox checkReflection;
+        private System.Windows.Forms.CheckBox checkRegistry;
+        private System.Windows.Forms.CheckBox checkStore;
+        private System.Windows.Forms.CheckBox checkTypeDescriptor;
+        private System.Windows.Forms.CheckBox checkWeb;
     }
 }
 

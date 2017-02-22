@@ -62,6 +62,7 @@
             this.checkFileDialog = new System.Windows.Forms.CheckBox();
             this.tableApplication = new System.Windows.Forms.TableLayoutPanel();
             this.checkWeb = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupApplication.SuspendLayout();
             this.tableApplicationLayout.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -152,8 +153,11 @@
             this.checkUnrestricted.Size = new System.Drawing.Size(83, 17);
             this.checkUnrestricted.TabIndex = 7;
             this.checkUnrestricted.TabStop = false;
+            this.checkUnrestricted.Tag = "Determines whether the PermissionSet is Unrestricted.";
             this.checkUnrestricted.Text = "Unrestricted";
             this.checkUnrestricted.UseVisualStyleBackColor = true;
+            this.checkUnrestricted.MouseEnter += new System.EventHandler(this.toolTip_MouseEnter);
+            this.checkUnrestricted.MouseLeave += new System.EventHandler(this.toolTip_MouseLeave);
             // 
             // checkIO
             // 
@@ -163,8 +167,11 @@
             this.checkIO.Size = new System.Drawing.Size(87, 17);
             this.checkIO.TabIndex = 8;
             this.checkIO.TabStop = false;
+            this.checkIO.Tag = "Controls the ability to access files and folders.";
             this.checkIO.Text = "Input/Output";
             this.checkIO.UseVisualStyleBackColor = true;
+            this.checkIO.MouseEnter += new System.EventHandler(this.toolTip_MouseEnter);
+            this.checkIO.MouseLeave += new System.EventHandler(this.toolTip_MouseLeave);
             // 
             // groupApplication
             // 
@@ -334,6 +341,7 @@
             // 
             // tabPermissionsBasic
             // 
+            this.tabPermissionsBasic.Controls.Add(this.label1);
             this.tabPermissionsBasic.Controls.Add(this.checkWeb);
             this.tabPermissionsBasic.Controls.Add(this.checkTypeDescriptor);
             this.tabPermissionsBasic.Controls.Add(this.checkStore);
@@ -359,90 +367,116 @@
             // checkTypeDescriptor
             // 
             this.checkTypeDescriptor.AutoSize = true;
-            this.checkTypeDescriptor.Location = new System.Drawing.Point(161, 121);
+            this.checkTypeDescriptor.Location = new System.Drawing.Point(333, 52);
             this.checkTypeDescriptor.Name = "checkTypeDescriptor";
             this.checkTypeDescriptor.Size = new System.Drawing.Size(101, 17);
             this.checkTypeDescriptor.TabIndex = 19;
             this.checkTypeDescriptor.TabStop = false;
+            this.checkTypeDescriptor.Tag = "Defines partial-trust access to the TypeDescriptor class.";
             this.checkTypeDescriptor.Text = "Type Descriptor";
             this.checkTypeDescriptor.UseVisualStyleBackColor = true;
+            this.checkTypeDescriptor.MouseEnter += new System.EventHandler(this.toolTip_MouseEnter);
+            this.checkTypeDescriptor.MouseLeave += new System.EventHandler(this.toolTip_MouseLeave);
             // 
             // checkStore
             // 
             this.checkStore.AutoSize = true;
-            this.checkStore.Location = new System.Drawing.Point(161, 98);
+            this.checkStore.Location = new System.Drawing.Point(333, 29);
             this.checkStore.Name = "checkStore";
             this.checkStore.Size = new System.Drawing.Size(51, 17);
             this.checkStore.TabIndex = 18;
             this.checkStore.TabStop = false;
+            this.checkStore.Tag = "Controls access to stores containing X.509 certificates.";
             this.checkStore.Text = "Store";
             this.checkStore.UseVisualStyleBackColor = true;
+            this.checkStore.MouseEnter += new System.EventHandler(this.toolTip_MouseEnter);
+            this.checkStore.MouseLeave += new System.EventHandler(this.toolTip_MouseLeave);
             // 
             // checkRegistry
             // 
             this.checkRegistry.AutoSize = true;
-            this.checkRegistry.Location = new System.Drawing.Point(161, 75);
+            this.checkRegistry.Location = new System.Drawing.Point(333, 6);
             this.checkRegistry.Name = "checkRegistry";
             this.checkRegistry.Size = new System.Drawing.Size(64, 17);
             this.checkRegistry.TabIndex = 17;
             this.checkRegistry.TabStop = false;
+            this.checkRegistry.Tag = "Controls the ability to access registry variables.";
             this.checkRegistry.Text = "Registry";
             this.checkRegistry.UseVisualStyleBackColor = true;
+            this.checkRegistry.MouseEnter += new System.EventHandler(this.toolTip_MouseEnter);
+            this.checkRegistry.MouseLeave += new System.EventHandler(this.toolTip_MouseLeave);
             // 
             // checkReflection
             // 
             this.checkReflection.AutoSize = true;
-            this.checkReflection.Location = new System.Drawing.Point(161, 52);
+            this.checkReflection.Location = new System.Drawing.Point(148, 98);
             this.checkReflection.Name = "checkReflection";
             this.checkReflection.Size = new System.Drawing.Size(74, 17);
             this.checkReflection.TabIndex = 16;
             this.checkReflection.TabStop = false;
+            this.checkReflection.Tag = "Controls access to non-public types and members through the System.Reflection API" +
+    "s. Controls some features of the System.Reflection.Emit APIs.";
             this.checkReflection.Text = "Reflection";
             this.checkReflection.UseVisualStyleBackColor = true;
+            this.checkReflection.MouseEnter += new System.EventHandler(this.toolTip_MouseEnter);
+            this.checkReflection.MouseLeave += new System.EventHandler(this.toolTip_MouseLeave);
             // 
             // checkPrincipal
             // 
             this.checkPrincipal.AutoSize = true;
-            this.checkPrincipal.Location = new System.Drawing.Point(161, 29);
+            this.checkPrincipal.Location = new System.Drawing.Point(148, 75);
             this.checkPrincipal.Name = "checkPrincipal";
             this.checkPrincipal.Size = new System.Drawing.Size(66, 17);
             this.checkPrincipal.TabIndex = 15;
             this.checkPrincipal.TabStop = false;
+            this.checkPrincipal.Tag = "Allows checks against the active principal using the language constructs defined " +
+    "for both declarative and imperative security actions.";
             this.checkPrincipal.Text = "Principal";
             this.checkPrincipal.UseVisualStyleBackColor = true;
+            this.checkPrincipal.MouseEnter += new System.EventHandler(this.toolTip_MouseEnter);
+            this.checkPrincipal.MouseLeave += new System.EventHandler(this.toolTip_MouseLeave);
             // 
             // checkKeyContainer
             // 
             this.checkKeyContainer.AutoSize = true;
-            this.checkKeyContainer.Location = new System.Drawing.Point(161, 6);
+            this.checkKeyContainer.Location = new System.Drawing.Point(148, 52);
             this.checkKeyContainer.Name = "checkKeyContainer";
             this.checkKeyContainer.Size = new System.Drawing.Size(92, 17);
             this.checkKeyContainer.TabIndex = 14;
             this.checkKeyContainer.TabStop = false;
+            this.checkKeyContainer.Tag = "Controls the ability to access key containers.";
             this.checkKeyContainer.Text = "Key Container";
             this.checkKeyContainer.UseVisualStyleBackColor = true;
+            this.checkKeyContainer.MouseEnter += new System.EventHandler(this.toolTip_MouseEnter);
+            this.checkKeyContainer.MouseLeave += new System.EventHandler(this.toolTip_MouseLeave);
             // 
             // checkEnvironment
             // 
             this.checkEnvironment.AutoSize = true;
-            this.checkEnvironment.Location = new System.Drawing.Point(6, 144);
+            this.checkEnvironment.Location = new System.Drawing.Point(148, 29);
             this.checkEnvironment.Name = "checkEnvironment";
             this.checkEnvironment.Size = new System.Drawing.Size(85, 17);
             this.checkEnvironment.TabIndex = 13;
             this.checkEnvironment.TabStop = false;
+            this.checkEnvironment.Tag = "Controls access to system and user environment variables. ";
             this.checkEnvironment.Text = "Environment";
             this.checkEnvironment.UseVisualStyleBackColor = true;
+            this.checkEnvironment.MouseEnter += new System.EventHandler(this.toolTip_MouseEnter);
+            this.checkEnvironment.MouseLeave += new System.EventHandler(this.toolTip_MouseLeave);
             // 
             // checkIsolatedStorage
             // 
             this.checkIsolatedStorage.AutoSize = true;
-            this.checkIsolatedStorage.Location = new System.Drawing.Point(6, 121);
+            this.checkIsolatedStorage.Location = new System.Drawing.Point(148, 6);
             this.checkIsolatedStorage.Name = "checkIsolatedStorage";
             this.checkIsolatedStorage.Size = new System.Drawing.Size(122, 17);
             this.checkIsolatedStorage.TabIndex = 12;
             this.checkIsolatedStorage.TabStop = false;
+            this.checkIsolatedStorage.Tag = "Specifies the allowed usage of a private virtual file system. ";
             this.checkIsolatedStorage.Text = "Isolated Storage File";
             this.checkIsolatedStorage.UseVisualStyleBackColor = true;
+            this.checkIsolatedStorage.MouseEnter += new System.EventHandler(this.toolTip_MouseEnter);
+            this.checkIsolatedStorage.MouseLeave += new System.EventHandler(this.toolTip_MouseLeave);
             // 
             // checkSecurity
             // 
@@ -452,8 +486,11 @@
             this.checkSecurity.Size = new System.Drawing.Size(64, 17);
             this.checkSecurity.TabIndex = 11;
             this.checkSecurity.TabStop = false;
+            this.checkSecurity.Tag = "Describes a set of security permissions applied to code.";
             this.checkSecurity.Text = "Security";
             this.checkSecurity.UseVisualStyleBackColor = true;
+            this.checkSecurity.MouseEnter += new System.EventHandler(this.toolTip_MouseEnter);
+            this.checkSecurity.MouseLeave += new System.EventHandler(this.toolTip_MouseLeave);
             // 
             // checkUI
             // 
@@ -463,8 +500,11 @@
             this.checkUI.Size = new System.Drawing.Size(93, 17);
             this.checkUI.TabIndex = 9;
             this.checkUI.TabStop = false;
+            this.checkUI.Tag = "Controls the permissions related to user interfaces and the Clipboard.";
             this.checkUI.Text = "User Interface";
             this.checkUI.UseVisualStyleBackColor = true;
+            this.checkUI.MouseEnter += new System.EventHandler(this.toolTip_MouseEnter);
+            this.checkUI.MouseLeave += new System.EventHandler(this.toolTip_MouseLeave);
             // 
             // checkFileDialog
             // 
@@ -474,8 +514,11 @@
             this.checkFileDialog.Size = new System.Drawing.Size(75, 17);
             this.checkFileDialog.TabIndex = 10;
             this.checkFileDialog.TabStop = false;
+            this.checkFileDialog.Tag = "Controls the ability to access files or folders through a File dialog box.";
             this.checkFileDialog.Text = "File Dialog";
             this.checkFileDialog.UseVisualStyleBackColor = true;
+            this.checkFileDialog.MouseEnter += new System.EventHandler(this.toolTip_MouseEnter);
+            this.checkFileDialog.MouseLeave += new System.EventHandler(this.toolTip_MouseLeave);
             // 
             // tableApplication
             // 
@@ -495,13 +538,25 @@
             // checkWeb
             // 
             this.checkWeb.AutoSize = true;
-            this.checkWeb.Location = new System.Drawing.Point(161, 144);
+            this.checkWeb.Location = new System.Drawing.Point(333, 75);
             this.checkWeb.Name = "checkWeb";
             this.checkWeb.Size = new System.Drawing.Size(49, 17);
             this.checkWeb.TabIndex = 20;
             this.checkWeb.TabStop = false;
+            this.checkWeb.Tag = "Controls the ability to access web services.";
             this.checkWeb.Text = "Web";
             this.checkWeb.UseVisualStyleBackColor = true;
+            this.checkWeb.MouseEnter += new System.EventHandler(this.toolTip_MouseEnter);
+            this.checkWeb.MouseLeave += new System.EventHandler(this.toolTip_MouseLeave);
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.Location = new System.Drawing.Point(3, 130);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(759, 41);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Info:\r\n...";
             // 
             // MainForm
             // 
@@ -574,6 +629,7 @@
         private System.Windows.Forms.CheckBox checkStore;
         private System.Windows.Forms.CheckBox checkTypeDescriptor;
         private System.Windows.Forms.CheckBox checkWeb;
+        private System.Windows.Forms.Label label1;
     }
 }
 

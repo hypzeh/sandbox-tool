@@ -142,7 +142,6 @@ namespace Sandbox_Tool
             Sandboxer appSandbox = new Sandboxer();
 
             LogThis("Executing " + Path.GetFileName(txtApplicationPath.Text));
-
             try
             {
                 appSandbox.ApplicationInitialise(txtApplicationPath.Text, txtApplicaitonParam.Text, pSet());
@@ -150,15 +149,18 @@ namespace Sandbox_Tool
             catch (SecurityException ex)
             {
                 LogThis("ERROR : " + ex.Action.ToString());
+                Console.WriteLine("--- {0} ERROR ---\n", Path.GetFileNameWithoutExtension(txtApplicationPath.Text));
                 if (ex.Action.ToString() == "Demand")
                 {
-                    LogThis("ERROR : " + ex.Demanded.ToString());
+                    int cutPoint = ex.Message.ToString().IndexOf(",");
+                    LogThis("DEMAND : " + ex.Message.ToString().Substring(0, cutPoint) + "'");
                 }
             }
 
 
-            LogThis(Path.GetFileName(txtApplicationPath.Text) + " Finished.");
+            LogThis("Terminated " + Path.GetFileName(txtApplicationPath.Text));
             ManageHistory();
+            LogThis("Ready...");
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -190,6 +192,16 @@ namespace Sandbox_Tool
         private void btnLogClear_Click(object sender, EventArgs e)
         {
             txtLog.ResetText();
+        }
+
+        private void toolTip_MouseEnter(object sender, EventArgs e)
+        {
+            label1.Text = "Info: \n" + ((CheckBox)sender).Tag.ToString();
+        }
+
+        private void toolTip_MouseLeave(object sender, EventArgs e)
+        {
+            label1.Text = "Info: \n" + "...";
         }
     }
 }

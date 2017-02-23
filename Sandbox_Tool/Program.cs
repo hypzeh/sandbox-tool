@@ -14,9 +14,8 @@ namespace Sandbox_Tool
         [STAThread]
         static void Main(string[] args)
         {
-            //string[] args = Environment.GetCommandLineArgs();
-
-            if (args.Length > 0 && args[0] != null)
+            // Console/Interface mode depending on parameter arguments
+            if (args.Length > 0 && args[0] != string.Empty)
             {
                 var cmdMainForm = new MainForm();
                 cmdMainForm.cmdManage(args);

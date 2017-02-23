@@ -62,7 +62,7 @@
             this.checkFileDialog = new System.Windows.Forms.CheckBox();
             this.tableApplication = new System.Windows.Forms.TableLayoutPanel();
             this.checkWeb = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblInfo = new System.Windows.Forms.Label();
             this.groupApplication.SuspendLayout();
             this.tableApplicationLayout.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -341,7 +341,7 @@
             // 
             // tabPermissionsBasic
             // 
-            this.tabPermissionsBasic.Controls.Add(this.label1);
+            this.tabPermissionsBasic.Controls.Add(this.lblInfo);
             this.tabPermissionsBasic.Controls.Add(this.checkWeb);
             this.tabPermissionsBasic.Controls.Add(this.checkTypeDescriptor);
             this.tabPermissionsBasic.Controls.Add(this.checkStore);
@@ -549,14 +549,14 @@
             this.checkWeb.MouseEnter += new System.EventHandler(this.toolTip_MouseEnter);
             this.checkWeb.MouseLeave += new System.EventHandler(this.toolTip_MouseLeave);
             // 
-            // label1
+            // lblInfo
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Location = new System.Drawing.Point(3, 130);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(759, 41);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Info:\r\n...";
+            this.lblInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblInfo.Location = new System.Drawing.Point(3, 130);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(759, 41);
+            this.lblInfo.TabIndex = 21;
+            this.lblInfo.Text = "Info:\r\n...";
             // 
             // MainForm
             // 
@@ -629,7 +629,7 @@
         private System.Windows.Forms.CheckBox checkStore;
         private System.Windows.Forms.CheckBox checkTypeDescriptor;
         private System.Windows.Forms.CheckBox checkWeb;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblInfo;
     }
 }
 

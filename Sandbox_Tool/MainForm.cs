@@ -23,7 +23,10 @@ namespace Sandbox_Tool
         {
             InitializeComponent();
 
+            // File Path Text Box active/selected on launch
             this.ActiveControl = txtApplicationPath;
+
+            // Populate the File Path Text Box from History stored in the settings manifest of the application
             UpdateHistory();
 
             LogThis("Choose Application...");
@@ -31,11 +34,13 @@ namespace Sandbox_Tool
 
         public void LogThis(string logString)
         {
+            // Logging to the Log Text Box
             txtLog.AppendText("[" + DateTime.Now.ToString("HH:mm:ss") + "] " + logString + "\n");
         }
 
         public void UpdateHistory()
         {
+            // (RE)Populate the File Path Text Box with History
             txtApplicationPath.Items.Clear();
             txtApplicationPath.Text = Sandbox_Tool.Properties.Settings.Default.appFilePathHistory1;
             txtApplicationPath.Items.Add(Sandbox_Tool.Properties.Settings.Default.appFilePathHistory2);
@@ -75,17 +80,20 @@ namespace Sandbox_Tool
             Sandbox_Tool.Properties.Settings.Default.appFilePathHistory2 = Sandbox_Tool.Properties.Settings.Default.appFilePathHistory1;
             Sandbox_Tool.Properties.Settings.Default.appFilePathHistory1 = txtApplicationPath.Text;
 
+            // Save & Update
             Sandbox_Tool.Properties.Settings.Default.Save();
             UpdateHistory();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            // Close the CURRENT application only
             this.Close();
         }
 
         private PermissionSet pSet(string args)
         {
+            // Create a Permission Set -> (UN)Restricted depending on user choice
             PermissionSet permSet = checkUnrestricted.CheckState == CheckState.Checked || args.Contains("-un")
                 ? new PermissionSet(PermissionState.Unrestricted) : new PermissionSet(PermissionState.None);
 
@@ -139,11 +147,13 @@ namespace Sandbox_Tool
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            // Sandboxer class
             Sandboxer appSandbox = new Sandboxer();
 
             LogThis("Executing " + Path.GetFileName(txtApplicationPath.Text));
             try
             {
+                // Initialise & Application Execution
                 appSandbox.ApplicationInitialise(txtApplicationPath.Text, txtApplicaitonParam.Text, pSet(string.Empty));
             }
             catch (SecurityException ex)
@@ -165,6 +175,7 @@ namespace Sandbox_Tool
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
+            // File Dialog -> Browse
             DialogResult appDialogResult = openApplicaitonDialog.ShowDialog();
 
             if (DialogResult.OK == appDialogResult)
@@ -177,6 +188,7 @@ namespace Sandbox_Tool
 
         private void btnLogToggle_CheckedChanged(object sender, EventArgs e)
         {
+            // Log Text Box visibility toggle
             if (btnLogToggle.CheckState == CheckState.Checked)
             {
                 btnLogToggle.Text = "Hide Log";
@@ -191,21 +203,25 @@ namespace Sandbox_Tool
 
         private void btnLogClear_Click(object sender, EventArgs e)
         {
+            // Clear the Log Text Box contents
             txtLog.ResetText();
         }
 
         private void toolTip_MouseEnter(object sender, EventArgs e)
         {
-            label1.Text = "Info: \n" + ((CheckBox)sender).Tag.ToString();
+            // Tool Tip/Info Box displayd based on the 'Tag' contents of the Check Box mouse hover
+            lblInfo.Text = "Info: \n" + ((CheckBox)sender).Tag.ToString();
         }
 
         private void toolTip_MouseLeave(object sender, EventArgs e)
         {
-            label1.Text = "Info: \n" + "...";
+            // Tool Tip/Info Box blank display when no Check Box mouse hover
+            lblInfo.Text = "Info: \n" + "...";
         }
 
         public void cmdManage(string[] args)
         {
+            // Help/Permissions list display after the appripriate -h argument entered
             if (args.Contains("-h") || args.Contains("-H"))
             {
                 Console.WriteLine(@"Parameters: ""<application path>"" ""<application parameters>"" ""<permissions>""");
@@ -229,6 +245,7 @@ namespace Sandbox_Tool
                 Console.WriteLine("HINT - Use -h for Help & Permissions List");
             }
 
+            // Execute Sandboxer functionality through command line when appropriate amount of arguments given
             if (args.Count() == 3)
             {
                 Sandboxer appSandbox = new Sandboxer();

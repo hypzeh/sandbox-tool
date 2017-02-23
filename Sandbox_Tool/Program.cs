@@ -16,7 +16,7 @@ namespace Sandbox_Tool
         {
             //string[] args = Environment.GetCommandLineArgs();
 
-            if (args.Length > 1 || args.Contains("-h"))
+            if (args.Length > 0 && args[0] != null)
             {
                 var cmdMainForm = new MainForm();
                 cmdMainForm.cmdManage(args);
